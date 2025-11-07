@@ -63,3 +63,49 @@ CREATE TABLE PedidoProducto (
     FOREIGN KEY (idPedidos) REFERENCES Pedidos(idPedidos),
     FOREIGN KEY (idProducto) REFERENCES Producto(idProducto)
 );
+
+-- Se añaden datos a las tablas creadas
+
+INSERT INTO Cliente (nombre, cantidad) VALUES
+('Laura Gómez', 2),
+('Andrés Pérez', 3),
+('Sofía Rojas', 5),
+('Carlos Díaz', 1);
+
+INSERT INTO Menu (OpcionDisponible) VALUES
+('Pizza grande'),
+('Panzarotti combo'),
+('Bebidas frías'),
+('Postres dulces');
+
+INSERT INTO Adicion (ExtraQueso, Salsa) VALUES
+('Sí', 'Tomate'),
+('No', 'BBQ'),
+('Sí', 'Rosada');
+
+INSERT INTO Producto (nombre, tipo, precio) VALUES
+('Pizza Margarita', 'pizza', 25000),
+('Pizza Hawaiana', 'pizza', 27000),
+('Panzarotti Jamón', 'panzarotti', 18000),
+('Gaseosa 400ml', 'bebida', 5000),
+('Postre de Chocolate', 'postre', 7000);
+
+INSERT INTO Combo (nombre, precio) VALUES
+('Combo Familiar', 45000),
+('Combo Pareja', 30000);
+
+INSERT INTO ComboProducto VALUES
+(1,1), (1,4), (1,5),
+(2,2), (2,3);
+
+INSERT INTO Pedidos (idCliente, idAdicion, idCombo, idMenu, fecha, tipo, total) VALUES
+(1, 1, 1, 1, '2025-11-01', 'consumir', 50000),
+(2, 2, 2, 2, '2025-11-02', 'recoger', 32000),
+(3, 3, NULL, 3, '2025-11-03', 'consumir', 27000),
+(4, 1, NULL, 4, '2025-11-04', 'recoger', 29000);
+
+INSERT INTO PedidoProducto VALUES
+(1, 1, 2), (1, 4, 2),
+(2, 2, 1), (2, 3, 1),
+(3, 1, 1), (3, 5, 1),
+(4, 2, 2), (4, 4, 1);
